@@ -17,9 +17,9 @@ module UserCourseHelper
 
   def type_status status
     case status
-    when t "subject.pending"
+    when t("subject.pending")
       t "course.success"
-    when t "subject.started"
+    when t("subject.started")
       t status.started?
     else
       t "course.info"
@@ -28,9 +28,9 @@ module UserCourseHelper
 
   def name_subject status
     case status
-    when t "subject.pending"
+    when t("subject.pending")
       t "subject.text_new"
-    when t "subject.started"
+    when t("subject.started")
       t "subject.text_started"
     else
       t "subject.text_finished"

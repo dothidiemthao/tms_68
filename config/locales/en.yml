@@ -81,6 +81,11 @@ en:
       about_description: "Framgia Vietnam is a company 100% Japan funded
         specializing in design, development applications such as mobile phone
         software, games, social and website applications."
+  users:
+    show:
+      role_trainee: "info"
+      role_supervisor: "warning"
+      role_admin: "danger"
   admin:
     static_pages:
       index:
@@ -111,7 +116,6 @@ en:
         subjects: "Subjects"
         subject_name: "Subject Name"
         create_button: "Create"
-
     subjects:
       create_success: "Subject has been created success"
       update_success: "Subject has been updated success"
@@ -148,7 +152,7 @@ en:
         edit: "Edit"
         delete: "Delete"
         create_at: "Time created"
-        description: "Desciption"
+        description: "Description"
         name: "Name"
       show:
         title: "Subject Detail"
@@ -199,6 +203,14 @@ en:
         btn_update: "Update"
       update:
         update_success: "User has been update success"
+      create:
+        create_success: "User has been created success"
+      show:
+        email: "Email: "
+        role: "Role: "
+        role_trainee: "info"
+        role_supervisor: "warning"
+        role_admin: "danger"
   title: "Framgia Training Management System"
   edit_profile: "Edit Profile"
   edit_anything: "Edit %{name}"
@@ -237,3 +249,29 @@ en:
     started: "started"
   task:
     title_show_task: "All Task"
+  mail:
+    mail_month: "[TMS][Monthly mail] Information of your's course"
+    welcome: "Hello %{name}"
+    blank: "********************************"
+    course: "Course: %{name}"
+    user: "User: %{name}"
+    subjects: "Subjects"
+    subject: "Subject: %{name}"
+    content: "Description: %{name}"
+    status: "Status: %{status}"
+    view_subject: "View Subject: "
+    asign_to_course: "You has been asigned to a course: %{name}"
+    reject_from_course: "You has been rejected from a course: %{name}"
+    thanks: "Thanks for joining, have a nice day!"
+    sorry: "See you again some courses, have a nice day!"
+    will_finish: "Course %{name} is finishing in 2 days"
+    subjects: "Subjects"
+    before_course_finish: "Course: %{name} will finish after 2 days"
+    course_status: "Status: %{status}"
+    course_description: "Description: %{description}"
+    mail_daily: "[TMS][Daily mail] Information tasks of Trainee"
+    trainee: "Trainee: %{name}"
+    has_update: "has update: %{task} to finished"
+    on_subject: "on Subject: %{name}"
+    in_course: "in Course: %{name}"
+    not_report: "Has not report task daily"

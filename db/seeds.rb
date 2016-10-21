@@ -5,18 +5,52 @@ User.create! name: "Supervisor", email: "supervisor@gmail.com",
 User.create! name: "Admin", email: "admin@gmail.com", password: "123456",
   password_confirmation: "123456", role: 2
 
-50.times do
-  name = Faker::Name.title
-  description = Faker::Hacker.say_something_smart
-  start_date = "2016-10-17"
-  end_date = "2016-12-17"
-  Course.create name: name, description: description, start_date: start_date,
-    end_date: end_date
+15.times do
+  params = {
+    subject: {
+      name: Faker::Name.name,
+      description: Faker::Hacker.say_something_smart,
+      tasks_attributes: [
+        {
+          name: Faker::Name.name,
+          description: Faker::Hacker.say_something_smart,
+          _destroy: false
+        }
+      ]
+    }
+  }
+  Subject.create! params[:subject]
+end
+
+10.times do
+  subject = Subject.offset(rand(Subject.count)).first
+  user = User.offset(rand(User.count)).first
+  admin = User.admin.first
+  params = {
+    course: {
+      name: Faker::Name.name,
+      description: Faker::Hacker.say_something_smart,
+      start_date: "2016-10-05",
+      end_date: "2017-01-05",
+      user_id: admin.id,
+      course_subjects_attributes: [
+        {
+          subject_id: subject.id,
+          _destroy: false
+        }
+      ],
+      user_courses_attributes: [
+        user_id: user.id,
+        _destroy: false
+      ]
+    }
+  }
+  Course.create! params[:course]
 end
 
 10.times do |n|
   name  = Faker::Name.name
-  email = "trainee-#{n+1}@trainee.com"
+  email = "trainee#{n+1}@gmail.com"
   password = "123456"
   User.create!(name:  name, email: email, password: password,
     password_confirmation: password, role: 0)
@@ -24,7 +58,7 @@ end
 
 5.times do |n|
   name  = Faker::Name.name
-  email = "supervisor-#{n+1}@super.com"
+  email = "supervisor#{n+1}@gmail.com"
   password = "123456"
   User.create!(name:  name, email: email, password: password,
     password_confirmation: password, role: 1)
@@ -32,7 +66,7 @@ end
 
 3.times do |n|
   name  = Faker::Name.name
-  email = "admin-#{n+1}@admin.com"
+  email = "admin#{n+1}@gmail.com"
   password = "123456"
   User.create!(name:  name, email: email, password: password,
     password_confirmation: password, role: 2)

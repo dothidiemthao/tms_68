@@ -8,7 +8,6 @@ class Admin::CoursesController < ApplicationController
   end
 
   def new
-    @course.build_course_subjects
   end
 
   def create
@@ -25,6 +24,7 @@ class Admin::CoursesController < ApplicationController
   private
   def course_params
     params.require(:course).permit :name, :description, :start_date, :end_date,
-      course_subjects_attributes: [:id, :subject_id, :_destroy]
+      :status, :user_id, course_subjects_attributes: [:id, :subject_id,
+        :_destroy]
   end
 end

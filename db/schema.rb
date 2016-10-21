@@ -38,9 +38,11 @@ ActiveRecord::Schema.define(version: 20161021064642) do
     t.date     "start_date"
     t.date     "end_date"
     t.integer  "status",      default: 0
+    t.integer  "user_id"
     t.datetime "created_at",              null: false
     t.datetime "updated_at",              null: false
     t.string   "image_url"
+    t.index ["user_id"], name: "index_courses_on_user_id", using: :btree
   end
 
   create_table "subjects", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -120,6 +122,7 @@ ActiveRecord::Schema.define(version: 20161021064642) do
   add_foreign_key "activities", "users"
   add_foreign_key "course_subjects", "courses"
   add_foreign_key "course_subjects", "subjects"
+  add_foreign_key "courses", "users"
   add_foreign_key "tasks", "subjects"
   add_foreign_key "user_courses", "courses"
   add_foreign_key "user_courses", "users"

@@ -65,6 +65,7 @@
   </div>
   <div class="form-group">
     <label class="col-md-4 control-label"></label>
+    <%= f,hidden_field :user_id, value: current_user.id %>
     <div class="col-md-4">
       <%= f.submit t(".create_button"), class: "btn btn-info" %>
     </div>

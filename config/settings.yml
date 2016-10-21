@@ -15,3 +15,5 @@ message_notice: "notice"
 message_alert: "alert"
 message_danger: "danger"
 course_subject_quanlity: 1
+mail_from: "project2tms@gmail.com"
+layout: "mailer"
