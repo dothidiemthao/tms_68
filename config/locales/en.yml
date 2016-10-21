@@ -81,6 +81,11 @@ en:
       about_description: "Framgia Vietnam is a company 100% Japan funded
         specializing in design, development applications such as mobile phone
         software, games, social and website applications."
+  users:
+    show:
+      role_trainee: "info"
+      role_supervisor: "warning"
+      role_admin: "danger"
   admin:
     static_pages:
       index:
@@ -111,7 +116,6 @@ en:
         subjects: "Subjects"
         subject_name: "Subject Name"
         create_button: "Create"
-
     subjects:
       create_success: "Subject has been created success"
       update_success: "Subject has been updated success"
@@ -199,6 +203,14 @@ en:
         btn_update: "Update"
       update:
         update_success: "User has been update success"
+      create:
+        create_success: "User has been created success"
+      show:
+        email: "Email: "
+        role: "Role: "
+        role_trainee: "info"
+        role_supervisor: "warning"
+        role_admin: "danger"
   title: "Framgia Training Management System"
   edit_profile: "Edit Profile"
   edit_anything: "Edit %{name}"

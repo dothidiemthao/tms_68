@@ -16,7 +16,7 @@ end
 
 10.times do |n|
   name  = Faker::Name.name
-  email = "trainee-#{n+1}@trainee.com"
+  email = "trainee#{n+1}@gmail.com"
   password = "123456"
   User.create!(name:  name, email: email, password: password,
     password_confirmation: password, role: 0)
@@ -24,7 +24,7 @@ end
 
 5.times do |n|
   name  = Faker::Name.name
-  email = "supervisor-#{n+1}@super.com"
+  email = "supervisor#{n+1}@gmail.com"
   password = "123456"
   User.create!(name:  name, email: email, password: password,
     password_confirmation: password, role: 1)
@@ -32,8 +32,20 @@ end
 
 3.times do |n|
   name  = Faker::Name.name
-  email = "admin-#{n+1}@admin.com"
+  email = "admin#{n+1}@gmail.com"
   password = "123456"
   User.create!(name:  name, email: email, password: password,
     password_confirmation: password, role: 2)
+end
+
+20.times do |s|
+  name = "Subject#{s+1}"
+  description = Faker::Lorem.sentence
+  introducs = "Get it overview task in here"
+  Subject.create! name: name, description: description,
+  tasks_attributes: [
+    {name:"Task 1", description: introducs},
+    {name:"Task 2", description: introducs},
+    {name:"Task 3", description: introducs},
+    {name:"Task 4", description: introducs}]
 end

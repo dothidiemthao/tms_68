@@ -1,14 +1,14 @@
 class Admin::UsersController < ApplicationController
+  layout "admin_application"
   before_action :authenticate_user!
   before_action :verify_admin
   load_and_authorize_resource
 
   def index
-    @users = if current_user.admin?
-      User.all
-    else
-      User.trainee
-    end.recent.page(params[:page]).per Settings.pagination.per_page
+    @users = User.trainee if current_user.supervisor?
+  end
+
+  def show
   end
 
   def new
@@ -39,9 +39,9 @@ class Admin::UsersController < ApplicationController
 
   def destroy
     if @user.destroy
-      flash[:success] = t "users.index.delete_success"
+      flash[:success] = t ".delete_success"
     else
-      flash[:danger] = t "users.index.delete_fail"
+      flash[:danger] = t ".delete_fail"
     end
     redirect_to admin_users_path
   end
