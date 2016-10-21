@@ -720,3 +720,11 @@ body > section {
   line-height: 1.33;
   border-radius: 25px;
 }
+#about, #service {
+  background-color: #FFF;
+}
+
+.custom-course {
+  max-height: 500px !important;
+  min-height: 300px !important;
+}

@@ -4,5 +4,8 @@ class Admin::StaticPagesController < ApplicationController
   before_action :verify_admin
 
   def index
+    @courses = Course.all
+    @subjects = Subject.all
+    @users = User.all
   end
 end

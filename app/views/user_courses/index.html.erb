@@ -26,7 +26,7 @@
     <div class = "row custom-row">
       <div class = "col-md-12">
         <% @user_courses.each do |user_course|%>
-          <div class = "col-md-4">
+          <div class = "col-md-4 custom-course">
             <div class="panel box-v7">
               <div class="panel-body">
                 <div class="col-md-12 padding-0 box-v7-header">
@@ -39,8 +39,7 @@
                       <p>
                         <%= l user_course.course.start_date, format: :short %>
                         <span id="status"
-                          class="label label-outline label-<%= show_status get_course_status user_course %>"
-                        >
+                          class="label label-outline label-<%= show_status_course get_course_status user_course %>">
                           <%= user_course.course.status %>
                       </span>
                       </p>

@@ -25,7 +25,7 @@
   <% if current_user.admin? %>
     <div class="form-group">
       <%= f.label :role %>
-      <%= f.select :role, User.roles, {}, class: "form-control" %>
+      <%= f.select :role, User.roles.keys, {}, class: "form-control" %>
     </div>
   <% end %>
 

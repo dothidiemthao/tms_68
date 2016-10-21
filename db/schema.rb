@@ -24,10 +24,11 @@ ActiveRecord::Schema.define(version: 20161021064642) do
   end
 
   create_table "course_subjects", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer  "status",     default: 0
     t.integer  "course_id"
     t.integer  "subject_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
     t.index ["course_id"], name: "index_course_subjects_on_course_id", using: :btree
     t.index ["subject_id"], name: "index_course_subjects_on_subject_id", using: :btree
   end
@@ -35,12 +36,15 @@ ActiveRecord::Schema.define(version: 20161021064642) do
   create_table "courses", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name"
     t.string   "description"
+    t.datetime "deleted_at"
     t.date     "start_date"
     t.date     "end_date"
     t.integer  "status",      default: 0
+    t.integer  "user_id"
     t.datetime "created_at",              null: false
     t.datetime "updated_at",              null: false
     t.string   "image_url"
+    t.index ["user_id"], name: "index_courses_on_user_id", using: :btree
   end
 
   create_table "subjects", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -73,8 +77,6 @@ ActiveRecord::Schema.define(version: 20161021064642) do
   end
 
   create_table "user_subjects", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.datetime "start_date"
-    t.datetime "end_date"
     t.integer  "status",         default: 0
     t.integer  "user_course_id"
     t.integer  "subject_id"
@@ -120,6 +122,7 @@ ActiveRecord::Schema.define(version: 20161021064642) do
   add_foreign_key "activities", "users"
   add_foreign_key "course_subjects", "courses"
   add_foreign_key "course_subjects", "subjects"
+  add_foreign_key "courses", "users"
   add_foreign_key "tasks", "subjects"
   add_foreign_key "user_courses", "courses"
   add_foreign_key "user_courses", "users"

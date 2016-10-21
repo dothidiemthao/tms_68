@@ -14,6 +14,7 @@ class Ability
       can [:create], UserTask, user_id: user.id
       can [:create, :read], [Activity, UserSubject], user_id: user.id
       can [:read], UserCourse, user_id: user.id
+      can [:update], UserSubject, user_id: user.id
     end
   end
 end

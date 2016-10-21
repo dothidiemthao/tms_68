@@ -26,6 +26,13 @@ gem "bootstrap-kaminari-views"
 gem "momentjs-rails"
 gem "bootstrap-daterangepicker-rails"
 gem "paranoia", "~> 2.2.0.pre"
+gem "sidekiq"
+gem "sinatra", require: false
+gem "letter_opener"
+gem "launchy"
+gem "whenever", require: false
+gem "daemons"
+gem "sidekiq_mailer"
 
 group :development, :test do
   gem "byebug", platform: :mri

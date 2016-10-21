@@ -2,7 +2,7 @@ $(document).ready(function() {
   $('.owl-carousel').owlCarousel();
 });
 
-$(document).ready(function() {
+$(document).on('page:change', function() {
   $(window).scroll(function() {
     if ($(this).scrollTop() > 50) {
       $('#back-to-top').fadeIn();
@@ -47,9 +47,15 @@ wow = new WOW({
 });
 wow.init();
 
-$(document).on('mouseover', '.menu_notifications', function() {
-  $('.noti-custom').slideDown(300);
-});
-$(document).on('mouseleave', '.menu_notifications', function() {
-  $('.noti-custom').slideUp(300);
+$(document).on('page:change', function(){
+  $(".menu_notifications").hover(
+    function() {
+      $('.dropdown-menu', this).not('.in .dropdown-menu').stop(true,true).slideDown("400");
+      $(this).toggleClass('open');
+    },
+    function() {
+      $('.dropdown-menu', this).not('.in .dropdown-menu').stop(true,true).slideUp("400");
+      $(this).toggleClass('open');
+    }
+  );
 });

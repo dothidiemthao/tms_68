@@ -3,21 +3,36 @@ class UserSubject < ApplicationRecord
   belongs_to :user_course
   belongs_to :subject
   has_many :user_tasks, dependent: :destroy
+  has_many :tasks, through: :subject
 
   enum status: {pending: 0, started: 1, finished: 2}
 
-  validates :start_date, presence: true
-  validates :end_date, presence: true
+  accepts_nested_attributes_for :user_tasks, allow_destroy: true,
+    reject_if: proc{|attribute| attribute[:task_id].nil?}
 
   scope :find_by_subject,->user_id, subject_id, user_course_id do
     find_by(user_id: user_id, subject_id: subject_id, user_course_id: user_course_id)
   end
 
-  scope :count_status,->status, user_id do
-    where(status: status, user_id: user_id).count(:status)
+  scope :count_status,->status do
+    where(status: status).count(:status)
   end
 
   scope :count_subject,->user_id do
     where(user_id: user_id).count(:subject_id)
+  end
+
+  def update_status
+    task_count = tasks.count
+    user_task_count = user_tasks.count
+    if task_count == 0 || user_task_count <= 0
+      pending!
+    else
+      if user_task_count < task_count
+        started!
+      elsif user_task_count >= task_count
+        finished!
+      end
+    end
   end
 end

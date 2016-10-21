@@ -81,6 +81,11 @@ en:
       about_description: "Framgia Vietnam is a company 100% Japan funded
         specializing in design, development applications such as mobile phone
         software, games, social and website applications."
+  users:
+    show:
+      role_trainee: "info"
+      role_supervisor: "warning"
+      role_admin: "danger"
   admin:
     static_pages:
       index:
@@ -92,6 +97,15 @@ en:
     courses:
       action_success: "Done!"
       subject_quanlity_error: "At least 1 subject!!!"
+      delete_success: "Course has been delete success"
+      delete_fail: "Cannot delete this course!!!"
+      update_success: "Course has been update success"
+      update_fail: "Cannot update this course!!!"
+      cannot_delete:
+        "This course is inprogress, cannot delete!!!"
+      course_pending: "success"
+      course_started: "primary"
+      course_finished: "info"
       index:
         title: "Manage Courses"
         title_header: "List Courses"
@@ -99,19 +113,69 @@ en:
         start_date: "Start Date"
         end_date: "End Date"
         status: "Status"
-        course_pending: "success"
-        course_started: "primary"
-        course_finished: "info"
         add_new_button: "Create New Course"
+        view: "View"
+        edit: "Edit"
+        delete: "Delete"
+        confirm_delete: "Are you sure delete this course?"
+        confirm_delete_association:
+          "This course has many  subjects, are you sure delete?"
       new:
         title: "New Course"
         title_header: "Add Course"
+        create_button: "Create"
+      edit:
+        title: "Update Course"
+        title_header: "Update Course"
+        update_button: "Update"
       form_course:
         range_date: "Range date"
         subjects: "Subjects"
         subject_name: "Subject Name"
-        create_button: "Create"
-
+      show:
+        title: "Detail Course"
+        title_header: "Detail Course"
+        user_create: "Creater"
+        start_at: "Start at:"
+        end_at: "End at:"
+        status: "Status:"
+        members: "Members"
+        course_name: "Course name"
+        members_active: "Members are in other course active"
+        subjects: "Subjects"
+        update_member: "Update Member"
+        update_course: "Update Course"
+        delete_course: "Delete Course"
+        start_course: "Start Course"
+        finish_course: "Finish Course"
+        trainees: "Trainees"
+        confirm_delete: "Are you sure delete this course?"
+        confirm_delete_association:
+          "This course has many  subjects, are you sure delete?"
+        confirm_start: "Are you sure start this course?"
+        confirm_finish: "Are you sure finish this course?"
+        (: "("
+        ): ")"
+        warning_message: "Some trainees has to be finished this course before
+          getting ready for the new one"
+      course_subjects:
+        start_subject: "Start Subject"
+        finish_subject: "Finish Subject"
+        confirm_start: "Are you sure start this subject?"
+        confirm_finish: "Are you sure finish this subject?"
+    user_courses:
+      action_success: "Done!"
+      course_not_found: "Course isn't exist"
+      show:
+        title: "Update Member"
+        title_header: "Update Member"
+        update_button: "Update Member"
+        role_trainee: "info"
+        role_supervisor: "warning"
+        role_admin: "danger"
+        user_name: "User name"
+        user_email: "Email"
+        role: "Role"
     subjects:
       create_success: "Subject has been created success"
       update_success: "Subject has been updated success"
@@ -148,7 +212,7 @@ en:
         edit: "Edit"
         delete: "Delete"
         create_at: "Time created"
-        description: "Desciption"
+        description: "Description"
         name: "Name"
       show:
         title: "Subject Detail"
@@ -199,6 +263,14 @@ en:
         btn_update: "Update"
       update:
         update_success: "User has been update success"
+      create:
+        create_success: "User has been created success"
+      show:
+        email: "Email: "
+        role: "Role: "
+        role_trainee: "info"
+        role_supervisor: "warning"
+        role_admin: "danger"
   title: "Framgia Training Management System"
   edit_profile: "Edit Profile"
   edit_anything: "Edit %{name}"
@@ -237,3 +309,33 @@ en:
     started: "started"
   task:
     title_show_task: "All Task"
+  mail:
+    mail_month: "[TMS][Monthly mail] Information of your's course"
+    welcome: "Hello %{name}"
+    blank: "********************************"
+    course: "Course: %{name}"
+    user: "User: %{name}"
+    subjects: "Subjects"
+    subject: "Subject: %{name}"
+    content: "Description: %{name}"
+    status: "Status: %{status}"
+    view_subject: "View Subject: "
+    asign_to_course: "You has been asigned to a course: %{name}"
+    reject_from_course: "You has been rejected from a course: %{name}"
+    thanks: "Thanks for joining, have a nice day!"
+    sorry: "See you again some courses, have a nice day!"
+    will_finish: "Course %{name} is finishing in 2 days"
+    subjects: "Subjects"
+    before_course_finish: "Course: %{name} will finish after 2 days"
+    course_status: "Status: %{status}"
+    course_description: "Description: %{description}"
+    mail_daily: "[TMS][Daily mail] Information tasks of Trainee"
+    trainee: "Trainee: %{name}"
+    has_update: "has update: %{task} to finished"
+    on_subject: "on Subject: %{name}"
+    in_course: "in Course: %{name}"
+    not_report: "Has not report task daily"
+  info:
+    activities: "Activities"
+    finished: "Finished course"
+    inprogress: "In progress courses"

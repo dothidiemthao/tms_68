@@ -22,3 +22,4 @@
 //= require_tree .
 //= require owl.carousel
 //= require growl
+//= require turbolinks-compatibility

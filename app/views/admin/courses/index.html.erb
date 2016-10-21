@@ -29,41 +29,7 @@
             </tr>
           </thead>
           <tbody>
-            <% @courses.each do |course| %>
-              <tr>
-                <td class = "text-center"><%= link_to course.name, "#" %></td>
-                <td class = "text-center">
-                  <%= l course.start_date, format: :default %>
-                </td>
-                <td class = "text-center">
-                  <%= l course.end_date, format: :default %>
-                </td>
-                <td class = "text-center">
-                  <span class="label label-outline label-<%= show_status course %>">
-                    <%= course.status %>
-                  </span>
-                </td>
-                <td class="text-center">
-                  <%= link_to "#", class: "text-success" do %>
-                    <span class="glyphicon glyphicon-search"></span>
-                    <%= t ".view" %>
-                  <% end %>
-                </td>
-                <td class="text-center">
-                  <%= link_to edit_admin_user_path(course) do %>
-                    <span class="glyphicon glyphicon-edit"></span>
-                    <%= t ".edit" %>
-                  <% end %>
-                </td>
-                <td class="text-center">
-                  <%= link_to admin_user_path(course), method: :delete,
-                    data: {confirm: t(".confirm_delete")}, class: "text-danger" do %>
-                    <span class="glyphicon glyphicon-trash"></span>
-                    <%= t ".delete" %>
-                  <% end %>
-                </td>
-              </tr>
-            <% end %>
+            <%= render @courses %>
           </tbody>
         </table>
       </div>

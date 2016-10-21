@@ -29,11 +29,12 @@
             <% end %>
           </li>
           <li class="menu_notifications">
-            <%= link_to "#" do %>
+            <%= link_to "#", data: {toggle: "dropdown"},
+              aria: {haspopup: "true", expanded: "true"} do %>
               <i class="fa fa-bell" aria-hidden="true"></i>
               <%= t ".menu_notifications" %>
             <% end %>
-            <ul class="dropdown-menu noti-custom">
+            <ul class="dropdown-menu mega-dropdown-menu noti-custom">
               <li class="external">
                   <h3><%= t ".menu_notifications" %></h3>
                   <%= link_to t(".view_all"), "#" %>
@@ -91,7 +92,7 @@
                 </li>
               <% end %>
               <li>
-                <%= link_to t(".account_profile"), edit_user_registration_path %>
+                <%= link_to t(".account_profile"), user_path(current_user) %>
               </li>
               <li role="separator" class="divider"></li>
               <li>

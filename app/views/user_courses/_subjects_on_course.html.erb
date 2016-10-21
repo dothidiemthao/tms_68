@@ -18,8 +18,8 @@
                       <p>
                         <%= trainer.name %>
                       </p>
-                      <%= paginate @trainer_in_course %>
                     <% end %>
+                    <%= paginate @trainer_in_course %>
                   </div>
                 </div>
               </div>
@@ -28,17 +28,22 @@
           <%= render "process_subject" %>
         </div>
         <div class="col-md-8">
-          <% subjects.each do |subject, user_subject, user_course| %>
+          <% subjects.each do |subject, user_subject, course_subject| %>
             <ul class="timeline">
               <li class="timeline-inverted">
                 <div class="timeline-badge warning">
-                  <i class="btn btn-<%= show_status user_subject %> btn-circle btn-lg"></i>
+                  <i class="btn btn-<%= show_status_subject course_subject %> btn-circle btn-lg"></i>
                 </div>
                 <div class="timeline-panel">
                   <div class="timeline-heading">
+                    <% if course.started? %>
                     <h4 class="timeline-title"><%= link_to subject.name,
                       user_course_user_subject_path(@user_course,user_subject) %>
                     </h4>
+                    <% else %>
+                      <h4 class="timeline-title"><%= subject.name %>
+                      </h4>
+                    <% end %>
                     <p>
                       <small class="text-muted">
                         <i class="glyphicon glyphicon-time"></i><%= t "member.date" %>

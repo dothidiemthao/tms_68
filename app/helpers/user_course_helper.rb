@@ -4,7 +4,7 @@ module UserCourseHelper
     object.course
   end
 
-  def show_status course
+  def show_status_course course
     case
     when course.pending?
       t "course.success"
@@ -15,12 +15,23 @@ module UserCourseHelper
     end
   end
 
+  def show_status_subject course_subject
+    case
+    when course_subject.pending?
+      t "course.success"
+    when course_subject.started?
+      t "course.primary"
+    else
+      t "course.info"
+    end
+  end
+
   def type_status status
     case status
-    when t "subject.pending"
+    when t("subject.pending")
       t "course.success"
-    when t "subject.started"
-      t status.started?
+    when t("subject.started")
+      t "course.primary"
     else
       t "course.info"
     end
@@ -28,16 +39,16 @@ module UserCourseHelper
 
   def name_subject status
     case status
-    when t "subject.pending"
+    when t("subject.pending")
       t "subject.text_new"
-    when t "subject.started"
+    when t("subject.started")
       t "subject.text_started"
     else
       t "subject.text_finished"
     end
   end
 
-  def count_status_subject object, status, user_id
-    object.user_subjects.count_status(status, user_id)
+  def count_status_subject object, status
+    object.count_status(status)
   end
 end

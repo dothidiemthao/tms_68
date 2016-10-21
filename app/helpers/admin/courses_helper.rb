@@ -3,11 +3,11 @@ module Admin::CoursesHelper
   def show_status course
     case
     when course.pending?
-      t ".course_pending"
+      t "admin.courses.course_pending"
     when course.started?
-      t ".course_started"
+      t "admin.courses.course_started"
     else
-      t ".course_finished"
+      t "admin.courses.course_finished"
     end
   end
 end

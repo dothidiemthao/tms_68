@@ -14,8 +14,8 @@
             </div>
           </div>
           <div class="panel-body text-center">
-            <h1><%= t ".count_number" %></h1>
-            <p><%= link_to t(".go_here"), "#" %></p>
+            <h1><%= @courses.count %></h1>
+            <p><%= link_to t(".go_here"), admin_courses_path %></p>
             <hr/>
           </div>
         </div>
@@ -33,8 +33,8 @@
             </div>
           </div>
           <div class="panel-body text-center">
-            <h1><%= t ".count_number" %></h1>
-            <p><%= link_to t(".go_here"), "#" %></p>
+            <h1><%= @subjects.count %></h1>
+            <p><%= link_to t(".go_here"), admin_subjects_path %></p>
             <hr/>
           </div>
         </div>
@@ -52,8 +52,8 @@
             </div>
           </div>
           <div class="panel-body text-center">
-            <h1><%= t ".count_number" %></h1>
-            <p><%= link_to t(".go_here"), "#" %></p>
+            <h1><%= @users.count %></h1>
+            <p><%= link_to t(".go_here"), admin_users_path %></p>
             <hr/>
           </div>
         </div>
