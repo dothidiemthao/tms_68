@@ -26,9 +26,18 @@ gem "bootstrap-kaminari-views"
 gem "momentjs-rails"
 gem "bootstrap-daterangepicker-rails"
 gem "paranoia", "~> 2.2.0.pre"
+gem "simplecov", :require => false, :group => :test
 
 group :development, :test do
   gem "byebug", platform: :mri
+  gem "rspec-rails", "~> 3.0"
+  gem "factory_girl_rails"
+  gem "capybara"
+end
+
+group :test do
+  gem "shoulda-matchers", "~> 3.0", require: false
+  gem "database_cleaner", "~> 1.5"
 end
 
 group :development do
