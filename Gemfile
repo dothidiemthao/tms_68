@@ -29,10 +29,18 @@ gem "paranoia", "~> 2.2.0.pre"
 
 group :development, :test do
   gem "byebug", platform: :mri
+  gem "pry"
+end
+
+group :test do
+  gem "factory_girl_rails"
+  gem "shoulda-matchers", "~> 3.0", require: false
+  gem "database_cleaner", "~> 1.5"
+  gem "simplecov", require: false
+  gem "rspec-rails", "~> 3.0"
 end
 
 group :development do
-  gem "pry"
   gem "web-console"
   gem "listen", "~> 3.0.5"
   gem "spring"

@@ -15,17 +15,14 @@ class Subject < ApplicationRecord
 
   scope :recent, ->{order created_at: :desc}
 
+  def is_inprogess?
+    self.courses.any?{|course| course.started?}
+  end
+
   private
   def validate_tasks
     if tasks.select{|task| !task._destroy}.count < Settings.task_quanlity
       errors.add :subjects, I18n.t("admin.subjects.task_quanlity_error")
     end
-  end
-
-  def is_inprogess?
-    @subject.courses.each do |course|
-      true if course.started?
-    end
-    false
   end
 end
