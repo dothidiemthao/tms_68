@@ -38,6 +38,8 @@ group :test do
   gem "database_cleaner", "~> 1.5"
   gem "simplecov", require: false
   gem "rspec-rails", "~> 3.0"
+  gem "rails-controller-testing"
+  gem "rspec-activemodel-mocks"
 end
 
 group :development do

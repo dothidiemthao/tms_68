@@ -18,7 +18,7 @@
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
 
 RSpec.configure do |config|
-  require "factory_girl_rails"
+  require "factory_girl"
   require "database_cleaner"
   require "simplecov"
   SimpleCov.start

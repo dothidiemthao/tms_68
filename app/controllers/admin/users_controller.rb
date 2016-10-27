@@ -4,11 +4,7 @@ class Admin::UsersController < ApplicationController
   load_and_authorize_resource
 
   def index
-    @users = if current_user.admin?
-      User.all
-    else
-      User.trainee
-    end.recent.page(params[:page]).per Settings.pagination.per_page
+    @users = User.trainee if current_user.supervisor?
   end
 
   def new
